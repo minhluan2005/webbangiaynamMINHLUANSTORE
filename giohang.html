@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,4 +165,172 @@
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINH LUÂN STORE - GIÀY NAM CHÍNH HÃNG</title>
+    <link rel="stylesheet" href="css/style3.css">
+</head>
+<body>
+    <header>
+        <div class="logo">MINH LUÂN STORE</div>
+        <div id="navbar">
+            <a href="index.html">Trang chủ</a>
+            <a href="giaynam.html">Giày nam</a>
+            <a href="giohang.html">Giỏ hàng</a>
+            <a href="blog.html">Blog</a>
+            <a href="lienhe.html">Liên hệ</a>
+            <a href="labthuchanh.html">Lab thực hành</a>
+        </div>
+        <button id="menu-toggle">☰</button>
+    </header>
+    <main>
+        <div class="banner-search-container">
+            <div class="container-flex">
+                <div class="hero-content">
+                    <h1>Định Hình Phong Cách Của Bạn</h1>
+                    <p><strong>Khám phá bộ sưu tập giày thể thao nam nữ mới nhất tại Minh Luân Store</strong></p>
+                </div>
+                <div class="header-tools">
+                    <div class="search-mini">
+                        <input type="text" id="searchInput" placeholder="Tìm giày...">
+                        <button type="button" onclick="searchProduct()">Tìm kiếm</button>
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="cart-container">
+            <h2>GIỎ HÀNG CỦA BẠN</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                    <tr>
+                        <td class="product-info">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=100" alt="Giày Trắng">
+                            <span>Giày Sneaker Nam Trắng Cổ Thấp</span>
+                        </td>   
+                        <td class="price" data-price="1500000">1.500.000 đ</td>
+                        <td>
+                            <input type="number" class="qty-input" value="1" min="1" onchange="updateTotal(this)">
+                        </td>
+                        <td class="item-total">1.500.000 đ</td>
+                        <td><button class="btn-remove" onclick="removeItem(this)">Xóa</button></td>
+                    </tr>
+                    <tr>
+                        <td class="product-info">
+                            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=100" alt="Giày Đen">
+                            <span>Giày Vans Đen Old Skool</span>
+                        </td>
+                        <td class="price" data-price="1200000">1.200.000 đ</td>
+                        <td>
+                            <input type="number" class="qty-input" value="1" min="1" onchange="updateTotal(this)">
+                        </td>
+                        <td class="item-total">1.200.000 đ</td>
+                        <td><button class="btn-remove" onclick="removeItem(this)">Xóa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="cart-summary">
+                <div class="total-box">
+                    <span>Tổng cộng:</span>
+                    <span id="grand-total" class="grand-total-price">2.700.000 đ</span>
+                </div>
+                <button class="btn-checkout" onclick="checkout()">TIẾN HÀNH THANH TOÁN</button>
+            </div>
+        </section>
+        <section id="account-section" class="account-container" style="display: none;">
+            <div id="login-box" class="auth-box">
+                <h2>ĐĂNG NHẬP TÀI KHOẢN</h2>
+                <p class="error-msg">* Bạn cần đăng nhập để hoàn tất quá trình thanh toán đơn hàng.</p>
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="loginEmail" placeholder="Nhập email của bạn" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" id="loginPass" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <button type="submit" class="btn-auth">ĐĂNG NHẬP & THANH TOÁN</button>
+                </form>
+                <div class="auth-links">
+                    <p>Chưa có tài khoản? <span class="switch-link" onclick="switchForm('register')">Đăng ký tài khoản mới</span></p>
+                </div>
+            </div>
+            <div id="register-box" class="auth-box hidden-form">
+                <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
+                <p>Tạo tài khoản thành viên Minh Luân Store</p>
+                <form onsubmit="handleRegister(event)">
+                    <div class="input-group">
+                        <label>Họ và tên</label>
+                        <input type="text" id="regName" placeholder="Nhập họ và tên" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="regEmail" placeholder="Nhập email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" id="regPass" placeholder="Tạo mật khẩu" required>
+                    </div>
+                    <button type="submit" class="btn-auth btn-register">ĐĂNG KÝ NGAY</button>
+                </form>
+                <div class="auth-links">
+                    <p>Đã có tài khoản? <span class="switch-link" onclick="switchForm('login')">Quay lại Đăng nhập</span></p>
+                </div>
+            </div>
+        </section>
+        <div class="newsletter-bar">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>Đăng Ký Nhận Bản Tin</h3>
+                    <p>Để nhận thông tin mới nhất từ Minh Luân Store</p>
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Nhập địa chỉ email của bạn">
+                    <button type="button">Đăng Ký</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="logo-box">
+                    <h1 style="margin: 0; font-size: 24px;">MINH LUÂN STORE</h1>
+                </div>
+                <p>Minh Luân Store - Đồ án website bán giày thời trang cuối kỳ môn học Phát triển Ứng dụng Web.</p>
+            </div>
+            <div class="footer-column">
+                <h3>THÔNG TIN</h3>
+                <p>Email: nguyennminhluan13092005@gmail.com</p>
+                <p>Điện thoại: 0707869014</p>
+                <p>Địa chỉ: 1360/4/6 Huỳnh Tấn Phát, khu phố 30, phường Tân Mỹ, TPHCM</p>
+                <p class="copyright">©COPYRIGHT © 2026 MINH LUÂN STORE, ALL RIGHTS RESERVED</p>
+            </div>
+            <div class="footer-column">
+                <h3>BẢN ĐỒ</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9544155204445!2d106.72886701533383!3d10.738002192347631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f86054817a3%3A0x67394d6e90e66861!2zMTM2MCBIdXluaCBU4bqlbiBQaMOhdCwgVMOibiBN4bu5LCBRdeG6rW4gNywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrG0gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1715712345678!5m2!1svi!2s" 
+                    width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+>>>>>>> 3e0b9e0eb8bd6cf5ce9f7bbfa7c271cf1d1d7396
 </html>
