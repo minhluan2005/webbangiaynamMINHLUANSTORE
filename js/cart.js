@@ -198,7 +198,3 @@ window.onload = function(){
     // Ẩn form đăng ký ban đầu.
     document.getElementById("register-box").style.display = "none";
 }
-window.onload = function(){
-    renderCart();
-    document.getElementById("register-box").style.display = "none";
-}
