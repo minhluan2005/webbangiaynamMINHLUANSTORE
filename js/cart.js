@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // ======================= GIỎ HÀNG ======================= //
 // Giỏ hàng ban đầu rỗng.
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -406,5 +405,4 @@ window.onload = function(){
 window.onload = function(){
     renderCart();
     document.getElementById("register-box").style.display = "none";
->>>>>>> 3e0b9e0eb8bd6cf5ce9f7bbfa7c271cf1d1d7396
 }
