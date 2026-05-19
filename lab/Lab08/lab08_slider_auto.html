@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+            border: 4px solid black;
+        }
+        .mySlides {
+            display: none;
+        }
+        .mySlides img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+        /* Nút prev next */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+            transform: translateY(-50%);
+            user-select: none;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0,0,0,0.5);
+        }
+        /* Dot */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <!--Chèn tất cả hình ảnh từ file img vào đây (5 hình ảnh)-->
+        <div class="mySlides fade">
+            <img src="img/slide_1.jpg" style="width: 100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/slide_2.jpg" style="width: 100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/slide_3.jpg" style="width: 100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/slide_4.jpg" style="width: 100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/slide_5.jpg" style="width: 100%;">
+        </div>
+        <!--Nút-->
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+    <div style="text-align: center">
+        <!--Dots-->
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        // Next Prev
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+         // Click dot
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        // Hiển thị slide (gồm 5 hình ảnh vừa chèn vào)
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            // Nếu vượt quá số hình ảnh vừa thêm (5 hình ảnh) thì trả về số trang là 1.
+            if(n > slides.length) {
+                slideIndex = 1
+            }
+            // Nếu nhỏ hơn ảnh đầu
+            if(n < 1) {
+                slideIndex = slides.length
+            }
+            // Duyệt độ dài trang hình ảnh bằng vòng lặp.
+            for(i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; // Ẩn tất cả hình ảnh.
+            }
+            for(i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block"; // Xuất hiện hình ảnh hiện tại.
+            dots[slideIndex - 1].className += " active";
+        }
+        // CHÈN HÀM BÀI 2 VÀO ĐÂY !!!
+        // Mỗi 2 giây sẽ tự động chuyển trang hình ảnh.
+        setInterval(function () {
+            plusSlides(1);
+        }, 2000);
+    </script>
+</body>
+</html>
